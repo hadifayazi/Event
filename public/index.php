@@ -1,11 +1,10 @@
 <?php
+
 require_once('./../src/db.php');
 include('header.php');
 
-$sql = "SELECT * FROM event";
-$stmt = $pdo->query($sql);
-while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
-    ?>
+
+?>
 
  <body>
   <section class="carousel">
@@ -49,18 +48,15 @@ while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
 </div>
   </section>
   <!-- cards -->
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0 container-items">
-    <div class="col-md-4 ">
-      <img src="https://placehold.jp/150x250.png" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $movies['title']; ?></h5>
-        <p class="card-text"><?php echo $movies['desc']; ?></p>
-        <button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-        <button type="button" class="btn btn-primary"  ><a href="cart.php?id=<?php echo $movies['event_id']; ?>">EN s +</a></button>
+  <?php
+  $sql = "SELECT * FROM events";
+$stmt = $pdo->query($sql);
+while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+    ?>
+  <th><?php echo $id; ?></th>
+            <td><?php echo $movies['name']; ?></td>
+            <td><?php echo $movies['decription']; ?></td>
+        <button type="button" class="btn btn-primary"  ><a href="cart.php?id=<?php echo $movies['id']; ?>">EN s +</a></button>
         <?php
 } ?>
   </section>

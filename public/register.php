@@ -1,4 +1,6 @@
 <?php
+
+
 require_once('./../src/db.php');
 include('header.php');
 session_start();
