@@ -1,12 +1,11 @@
 <?php
+require_once('./../src/db.php');
 include('header.php');
 
-
-
-
-
-
-?>
+$sql = "SELECT * FROM event";
+$stmt = $pdo->query($sql);
+while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+    ?>
 
  <body>
   <section class="carousel">
@@ -25,7 +24,7 @@ include('header.php');
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./img/noom-peerapong-2uwFEAGUm6E-unsplash.jpg" class="d-block w-100" alt="...">
+      <img src="./img/noom-peerapong-2uwFEAGUm6E-unsplash.jpg"  class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
@@ -50,24 +49,6 @@ include('header.php');
 </div>
   </section>
   <!-- cards -->
-  <section class="container">
-  <div class="card mb-3 " style="max-width: 540px;">
-  <div class="row g-0 container-items">
-    <div class="col-md-4" >
-      <img src="https://placehold.jp/150x250.png" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-        <a href="https://unsplash.com/s/photos/movie" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">En savoir plus</a>
-</button>
-      </div>
-    </div>
-  </div>
-</div>
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0 container-items">
     <div class="col-md-4 ">
@@ -75,55 +56,15 @@ include('header.php');
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title"><?php echo $movies['title']; ?></h5>
+        <p class="card-text"><?php echo $movies['desc']; ?></p>
         <button type="button" class="btn btn-primary"
         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-        <a href="https://unsplash.com/s/photos/movie" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">En savoir plus</a>
-</button>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0 container-items">
-    <div class="col-md-4 ">
-      <img src="https://placehold.jp/150x250.png" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8 ">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-        <a href="https://unsplash.com/s/photos/movie" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">En savoir plus</a>
-</button>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0 container-items">
-    <div class="col-md-4 ">
-      <img src="https://placehold.jp/150x250.png" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-        <a href="https://unsplash.com/s/photos/movie" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">En savoir plus</a>
-</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
+        <button type="button" class="btn btn-primary"  ><a href="cart.php?id=<?php echo $movies['event_id']; ?>">EN s +</a></button>
+        <?php
+} ?>
   </section>
-  <footer>
-    <h6>Just a footer</h6>
-  </footer>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
  </body>
  </html>
