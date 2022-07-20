@@ -33,7 +33,7 @@ if (isset($_REQUEST['register'])) {
     // s'il y a pas de ERROR message(les chemps sont remplis et le password >=6 caracteres) on vérifie si cet email déja a été utilisé (si exist dans notre BDD) si oui, le user doit se connecter ou utiliser un autre email
     if (!$usernameErr && !$emailErr && !$passErr1 && !$passErr2) {
         try {
-            $select_stmt = $pdo->prepare("SELECT user_name,email FROM users WHERE email = :email");
+            $select_stmt = $pdo->prepare("SELECT username,email FROM users WHERE email = :email");
             $select_stmt->execute([':email' => $email]);
             $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
             //if email exists Err message
@@ -44,17 +44,14 @@ if (isset($_REQUEST['register'])) {
             //if email dose not exists
             else {   //on hash le password (question de security)
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $regiter_date = new DateTime();
-                $regiter_date = $regiter_date->format('Y-m-d H:i:s');
                 // on va enregistrer les donnees dans notre BDD
-                $insert_stmt = $pdo->prepare("INSERT INTO users (user_name, email, password,register_date) VALUES(:username, :email, :password, :register_date)");
+                $insert_stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES(:username, :email, :password)");
 
                 if ($insert_stmt->execute(
                     [
                         ':username'=> $username,
                         ':email'=> $email,
                         ':password'=>  $hashed_password,
-                        ':register_date'=> $regiter_date,
                         
                     ]
                 )

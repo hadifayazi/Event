@@ -54,9 +54,9 @@ $stmt = $pdo->query($sql);
 while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
     ?>
   <th><?php echo $id; ?></th>
-            <td><?php echo $movies['name']; ?></td>
-            <td><?php echo $movies['decription']; ?></td>
-        <button type="button" class="btn btn-primary"  ><a href="cart.php?id=<?php echo $movies['id']; ?>">EN s +</a></button>
+            <td><?php echo $movies['title']; ?></td>
+            <td><?php echo $movies['desc']; ?></td>
+        <button type="button" class="btn btn-primary"  ><a href="reservation.php?idEvent=<?php echo $movies['idevent']; ?>">EN s +</a></button>
         <?php
 } ?>
   </section>
