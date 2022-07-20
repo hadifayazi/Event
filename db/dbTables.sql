@@ -10,6 +10,7 @@ CREATE TABLE `auditorium` (
 
 
 
+
 ----------events table -------------
 CREATE TABLE `events` (
   `idevent` int NOT NULL AUTO_INCREMENT,
@@ -20,6 +21,8 @@ CREATE TABLE `events` (
   `desc` longtext NOT NULL,
   PRIMARY KEY (`idevent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
 
 
 ----------- reservation table------------
@@ -89,3 +92,27 @@ CREATE TABLE `users` (
   `password` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`idusers`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+
+-- 
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('A', '4', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('A', '5', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('A', '6', '1');
+INSERT INTO `movie`.`seat` (`idseat`, `row`, `number`, `auditorium_d`) VALUES ('', 'A', '7', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '1', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '2', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '3', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '4', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '5', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '6', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('B', '7', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '1', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '2', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '3', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '4', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '5', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '6', '1');
+INSERT INTO `movie`.`seat` (`row`, `number`, `auditorium_d`) VALUES ('C', '7', '1');

@@ -53,10 +53,17 @@ include('header.php');
 $stmt = $pdo->query($sql);
 while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
     ?>
-  <th><?php echo $id; ?></th>
-            <td><?php echo $movies['title']; ?></td>
-            <td><?php echo $movies['desc']; ?></td>
-        <button type="button" class="btn btn-primary"  ><a href="reservation.php?idEvent=<?php echo $movies['idevent']; ?>">EN s +</a></button>
+    <div class="card-container">
+      <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+          <h5 class="card-title"><?php echo $movies['title']; ?></h5>
+          <p class="card-text"><?php echo $movies['desc']; ?></p>
+          <button type="button" class="btn btn-primary"  ><a href="reservation.php?idEvent=<?php echo $movies['idevent']; ?>">EN s +</a></button>
+      </div>
+      </div>
+    </div>
+        
         <?php
 } ?>
   </section>

@@ -20,11 +20,16 @@
 .form-items {
   margin: 50px 20px 0 20px;
 }
-.card-resa-container {
+.card {
   display: flex;
   margin: 50px;
   padding: 30px;
 }
+
+.card-container {
+  display: inline-block;
+}
+
 .img-form-add {
   margin: 50px;
 }
