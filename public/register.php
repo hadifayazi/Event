@@ -1,6 +1,5 @@
 <?php
 
-
 require_once('./../src/db.php');
 include('header.php');
 session_start();
@@ -51,7 +50,7 @@ if (isset($_REQUEST['register'])) {
                     [
                         ':username'=> $username,
                         ':email'=> $email,
-                        ':password'=>  $hashed_password,
+                        ':password'=>  $hashed_password
                         
                     ]
                 )
@@ -64,6 +63,11 @@ if (isset($_REQUEST['register'])) {
         }
     }
 }
+
+
+
+
+
 ?>
     <section class="register">
         <form action="register.php" method="post">   
