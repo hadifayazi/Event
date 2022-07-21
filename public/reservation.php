@@ -39,7 +39,7 @@ $query = "SELECT * FROM screening LEFT JOIN events ON screening.event_id = event
 $st = $pdo->prepare($query);
 $st->execute([':idEvent' => $idEvent]);
 $screening = $st->fetchAll();
-print_r($screening);
+
 ?>
 
 <h5>Book your Ticket</h5>
