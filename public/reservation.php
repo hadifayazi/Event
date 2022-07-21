@@ -32,7 +32,8 @@ if (isset($_GET['idEvent'])) {
 
 
 $idEvent= $_GET['idEvent'];
-
+$regiter_date = new DateTime();
+$regiter_date = $regiter_date->format('Y-m-d H:i:s');
 
 $query = "SELECT * FROM screening LEFT JOIN events ON screening.event_id = events.idevent WHERE events.idevent = :idEvent";
 $st = $pdo->prepare($query);
@@ -42,3 +43,6 @@ print_r($screening);
 ?>
 
 <h5>Book your Ticket</h5>
+
+//choosing a seat
+
