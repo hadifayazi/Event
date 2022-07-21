@@ -15,6 +15,7 @@ if (isset($_GET['idEvent'])) {
 
 
 
+
 ?>
 
 <div class="">
@@ -26,3 +27,18 @@ if (isset($_GET['idEvent'])) {
         <p><?php echo"Duration: ".$event['duration']."mins"; ?></p>
         <p><?php echo $event['desc']; ?></p><br>
 </div>
+
+<?php
+
+
+$idEvent= $_GET['idEvent'];
+
+
+$query = "SELECT * FROM screening LEFT JOIN events ON screening.event_id = events.idevent WHERE events.idevent = :idEvent";
+$st = $pdo->prepare($query);
+$st->execute([':idEvent' => $idEvent]);
+$screening = $st->fetchAll();
+print_r($screening);
+?>
+
+<h5>Book your Ticket</h5>
