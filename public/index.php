@@ -54,7 +54,7 @@ $stmt = $pdo->query($sql);
 while ($movies = $stmt ->fetch(PDO::FETCH_ASSOC)) {
     ?>
     <div class="card-container">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem; height: 500px;">
           <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
           <h5 class="card-title"><?php echo $movies['title']; ?></h5>

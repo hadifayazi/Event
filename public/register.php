@@ -64,10 +64,6 @@ if (isset($_REQUEST['register'])) {
     }
 }
 
-
-
-
-
 ?>
     <section class="register">
         <form action="register.php" method="post">   
