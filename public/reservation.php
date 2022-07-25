@@ -58,9 +58,9 @@ $screening = $st->fetchAll();
       <th scope="row"><?php echo $event['title'];?></th>
       <td><?php echo $screen['audit_id'];?></td>
       <td><?php echo $screen['screening_start'];?></td>
-      <td><?php echo $screen['price'];?></td>
+      <td><?php echo $screen['price'];?></td><br>
       <td>
-        <form action="">
+        <form action="cart.php" method="post">
             <select name="ticket" id="">
             <?php
                 $avilability = $screen['availibility'];
@@ -69,7 +69,7 @@ $screening = $st->fetchAll();
                                 <?php } ?>
             </select>
             <input type="hidden" name="idScrenning" value="<?php echo $screen['idscreening']; ?>" />
-            <button type="submit" class="btn btn-primary">Add to cart</button>
+            <button type="submit" class="btn btn-primary" name="add">Add to cart</button>
         </form>
       </td>
     
@@ -83,7 +83,4 @@ $screening = $st->fetchAll();
 
 
 
-<h5>Book your Ticket</h5>
-
-//choosing a seat
 

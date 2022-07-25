@@ -9,7 +9,7 @@ session_start();
 //     exit();
 // }
 
-//page:login
+
 
 //on controle si les champs email et password est bien rempli sinon meggases ERROR
 if (isset($_REQUEST['login'])) {
