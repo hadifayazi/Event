@@ -42,7 +42,45 @@ $screening = $st->fetchAll();
 
 ?>
 
-<h5>Book your Ticket</h5>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Auditorium</th>
+      <th scope="col">Screening</th>
+      <th scope="col">Price</th>
+      <th scope="col">Number of seats</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <?php foreach ($screening as $screen) {?>
+      <th scope="row"><?php echo $event['title'];?></th>
+      <td><?php echo $screen['audit_id'];?></td>
+      <td><?php echo $screen['screening_start'];?></td>
+      <td><?php echo $screen['price'];?></td><br>
+      <td>
+        <form action="cart.php" method="post">
+            <select name="ticket" id="">
+            <?php
+                $avilability = $screen['availibility'];
+        for ($nb = 1; $nb <= $avilability && $nb <9; $nb++) { ?>
+                <option value=<?php echo $nb ?>><?php echo $nb ?></option>
+                                <?php } ?>
+            </select>
+            <input type="hidden" name="idScrenning" value="<?php echo $screen['idscreening']; ?>" />
+            <button type="submit" class="btn btn-primary" name="add">Add to cart</button>
+        </form>
+      </td>
+    
+      <td></td>
+    </tr>
+   <?php } ?> 
+  </tbody>
+</table>
 
-//choosing a seat
+
+
+
+
 
